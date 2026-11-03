@@ -1,0 +1,14 @@
+name: First GitHub Actions Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build Application
+        run: echo "Hello! My first GitHub Actions pipeline is running."
