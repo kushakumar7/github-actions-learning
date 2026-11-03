@@ -1,4 +1,5 @@
-name: First GitHub Actions Pipeline
+
+name: GitHub Actions Multi Step Pipeline
 
 on:
   push:
@@ -7,8 +8,24 @@ on:
 
 jobs:
   build:
+    name: Build and Validate Application
     runs-on: ubuntu-latest
 
     steps:
-      - name: Build Application
-        run: echo "Hello! My first GitHub Actions pipeline is running."
+      - name: Step 1 - Welcome Message
+        run: echo "Welcome to GitHub Actions"
+
+      - name: Step 2 - Application Name
+        run: echo "Application: DevOps Learning Project"
+
+      - name: Step 3 - Check Operating System
+        run: uname -a
+
+      - name: Step 4 - Display Current Date
+        run: date
+
+      - name: Step 5 - Deployment Message
+        run: |
+          echo "Starting deployment"
+          echo "Application build completed"
+          echo "Deployment pipeline executed successfully"
