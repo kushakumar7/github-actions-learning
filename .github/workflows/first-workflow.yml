@@ -1,30 +1,25 @@
-name: GitHub Actions Multi Step Pipeline
+name: GitHub Actions Event Trigger Pipeline
 
 on:
   push:
     branches:
       - main
 
+  workflow_dispatch:
+
 jobs:
   build:
-    name: Build and Validate Application
+    name: Event Trigger Demo
     runs-on: ubuntu-latest
 
     steps:
-      - name: Step 1 - Welcome Message
-        run: echo "Welcome to GitHub Actions"
+      - name: Step 1 - Identify Trigger
+        run: echo "GitHub Actions workflow started"
 
-      - name: Step 2 - Application Name
-        run: echo "Application DevOps Learning Project"
+      - name: Step 2 - Display Event Name
+        run: echo "Event: ${{ github.event_name }}"
+      - name: Step 3 - Display Branch
+        run: echo "Branch: ${{ github.ref_name }}"
 
-      - name: Step 3 - Check Operating System
-        run: uname -a
-
-      - name: Step 4 - Display Current Date
-        run: date
-
-      - name: Step 5 - Deployment Message
-        run: |
-          echo "Starting deployment"
-          echo "Application build completed"
-          echo "Deployment pipeline executed successfully"
+      - name: Step 4 - Build Message
+        run: echo "Application build completed successfully"
