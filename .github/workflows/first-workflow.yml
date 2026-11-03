@@ -15,7 +15,7 @@ jobs:
         run: echo "Welcome to GitHub Actions"
 
       - name: Step 2 - Application Name
-        run: echo "Application: DevOps Learning Project"
+        run: echo "Application DevOps Learning Project"
 
       - name: Step 3 - Check Operating System
         run: uname -a
