@@ -1,0 +1,44 @@
+name: GitHub Runner Information
+
+on:
+  workflow_dispatch:
+
+jobs:
+  runner-info:
+    name: Inspect GitHub Runner
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step 1 - Display Runner OS
+        run: |
+          echo "Runner OS: $RUNNER_OS"
+
+      - name: Step 2 - Display Architecture
+        run: |
+          echo "Architecture: $RUNNER_ARCH"
+
+      - name: Step 3 - Display Linux Information
+        run: |
+          uname -a
+
+      - name: Step 4 - Display Current User
+        run: |
+          whoami
+
+      - name: Step 5 - Display Working Directory
+        run: |
+          pwd
+
+      - name: Step 6 - Display CPU Information
+        run: |
+          nproc
+          lscpu
+
+      - name: Step 7 - Display Disk Information
+        run: |
+          df -h
+
+      - name: Step 8 - Display Runner Workspace
+        run: |
+          echo "Workspace: $GITHUB_WORKSPACE"
+          echo "Temporary Directory: $RUNNER_TEMP"
