@@ -1,0 +1,30 @@
+name: Pull Request Validation Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pr-validation:
+    name: Validate Pull Request
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step 1 - Start Validation
+        run: echo "Pull Request validation started"
+
+      - name: Step 2 - Display Event
+        run: 'echo "Event: ${{ github.event_name }}"'
+
+      - name: Step 3 - Display PR Number
+        run: 'echo "Pull Request Number: ${{ github.event.pull_request.number }}"'
+
+      - name: Step 4 - Display Source Branch
+        run: 'echo "Source Branch: ${{ github.event.pull_request.head.ref }}"'
+
+      - name: Step 5 - Display Target Branch
+        run: 'echo "Target Branch: ${{ github.event.pull_request.base.ref }}"'
+
+      - name: Step 6 - Validation Complete
+        run: echo "Pull Request validation completed successfully"
